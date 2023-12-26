@@ -24,7 +24,7 @@ class MailMail(models.Model):
     _inherit = 'mail.mail'
 
     def write(self, vals):
-        res = super(MailMail, self).create(vals)
+        res = super(MailMail, self).write(vals)
 
         if res.state == 'exception':
             url = "https://ssolid.erpselfstorage.com"
@@ -46,3 +46,4 @@ class MailMail(models.Model):
             models.execute_kw(db, uid, password, 'ares_email_monitor.ares_email_monitor', 'create', context)
 
         return res  
+    raise exception.with_traceback(None) from new_cause
