@@ -39,6 +39,6 @@
       </field>
     </record>
 
-    <menuitem id="ares_email_monitor_ares_email_monitor_menu" name="Email Monitor" action="ares_email_monitor_ares_email_monitor_action" sequence="1" web_icon="ares_email_monitor,static/description/icon.png"/>   
+    <menuitem id="ares_email_monitor_ares_email_monitor_menu" name="Email Monitor" action="ares_email_monitor_ares_email_monitor_action" sequence="1" web_icon="ares_email_monitor,static/description/icon_e.png"/>   
 
 </odoo>
