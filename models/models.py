@@ -16,6 +16,8 @@ class ares_email_monitor(models.Model):
     email_from = fields.Char(string='From')
     body_html = fields.Html(string='Body')
     exception = fields.Char(string='Exception')
+    curremt_data_base = fields.Char(string="Current Data Base")
+    current_record_id = fields.Integer(string="Current Record Id")
 
 
 
@@ -26,7 +28,7 @@ class MailMail(models.Model):
     def write(self, vals):
         res = super(MailMail, self).write(vals)
 
-        if res.state == 'exception':
+        if self.state == 'exception':
             url = "https://ssolid.erpselfstorage.com"
             db = "ssolid"
             username = "admin"
@@ -34,15 +36,20 @@ class MailMail(models.Model):
             common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
             uid = common.authenticate(db, username, password, {})
             models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
+            record_id = self.id
+            db_error = self.env.cr.dbname
 
             context = [{
-                'subject': res.subject,
-                'email_to': res.email_to,
-                'email_from': res.email_from,
-                'body_html': res.body_html,
-                'date': res.date,
-                'exception': res.failure_reason
+                'subject': self.subject,
+                'email_to': self.email_to,
+                'email_from': self.email_from,
+                'body_html': self.body_html,
+                'date': self.date,
+                'exception': self.failure_reason,
+                "curremt_data_base": db_error,
+                "current_record_id": record_id,
+
             }]
             models.execute_kw(db, uid, password, 'ares_email_monitor.ares_email_monitor', 'create', context)
 
-        return res  
+        return res

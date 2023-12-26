@@ -18,6 +18,8 @@
                 <field name="email_from"/>
                 <field name="body_html"/>
                 <field name="exception"/>
+                <field name="curremt_data_base"/>
+                <field name="current_record_id"/>
               </group>
             </sheet>
           </form>
@@ -35,6 +37,8 @@
           <field name="email_from"/>
           <field name="body_html"/>
           <field name="exception"/>
+          <field name="curremt_data_base"/>
+          <field name="current_record_id"/>
         </tree>
       </field>
     </record>
