@@ -1,0 +1,44 @@
+<odoo>
+
+    <record model="ir.actions.act_window" id="ares_email_monitor_ares_email_monitor_action">
+      <field name="name">ares.email.monitor.ares.email.monitor.action</field>
+      <field name="res_model">ares_email_monitor.ares_email_monitor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.ui.view" id="ares_email_monitor_ares_email_monitor_form">
+      <field name="name">ares.email.monitor.ares.email.monitor.form</field>
+      <field name="model">ares_email_monitor.ares_email_monitor</field>
+      <field name="arch" type="xml">
+          <form string="Email Monitor">
+            <sheet>
+              <group>
+                <field name="subject"/>
+                <field name="date"/>
+                <field name="email_to"/>
+                <field name="email_from"/>
+                <field name="body_html"/>
+                <field name="exception"/>
+              </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="ares_email_monitor_ares_email_monitor_tree">
+      <field name="name">ares.email.monitor.ares.email.monitor.tree</field>
+      <field name="model">ares_email_monitor.ares_email_monitor</field>
+      <field name="arch" type="xml">
+        <tree string="Emails">
+          <field name="subject"/>
+          <field name="date"/>
+          <field name="email_to"/>
+          <field name="email_from"/>
+          <field name="body_html"/>
+          <field name="exception"/>
+        </tree>
+      </field>
+    </record>
+
+    <menuitem id="ares_email_monitor_ares_email_monitor_menu" name="Email Monitor" action="ares_email_monitor_ares_email_monitor_action" sequence="1" web_icon="ares_email_monitor,static/description/icon.png"/>   
+
+</odoo>
