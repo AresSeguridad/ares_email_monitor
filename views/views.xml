@@ -43,6 +43,18 @@
       </field>
     </record>
 
-    <menuitem id="ares_email_monitor_ares_email_monitor_menu" name="Email Monitor" action="ares_email_monitor_ares_email_monitor_action" sequence="1" web_icon="ares_email_monitor,static/description/icon_e.png"/>   
+    <menuitem name="Email Monitor"
+            id="menu_mail_mail_monitor"
+            action="mail.action_view_mail_mail"
+            sequence="1" web_icon="ares_email_monitor,static/description/icon_e.png"
+    />
+
+
+
+    <menuitem name="Email Monitor"
+            id="ares_email_monitor_ares_email_monitor_menu"
+            parent="menu_mail_mail_monitor"
+            action="ares_email_monitor_ares_email_monitor_action"
+            sequence="6"/>
 
 </odoo>
